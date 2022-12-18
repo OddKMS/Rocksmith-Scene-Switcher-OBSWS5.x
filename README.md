@@ -16,7 +16,7 @@ Before using this software, you need to be sure about 2 things :
 - You have Rocksniffer running with the API enabled (last tested version : 0.3.4)
 - OBS Studio is running with OBS-Websocket plugin (last tested version : 5.1.0)
 
-Download the latest executable version on [the release section !](https://github.com/Warths/Rocksmith-Scene-Switcher/releases)
+Download the latest executable version on [the release section !](https://github.com/OddKMS/Rocksmith-Scene-Switcher-OBSWS5.x/releases/)
 
 Upon first opening of the program, a config.ini file will be created. You can change it, especially the [Behaviour] section
 
