@@ -1,4 +1,4 @@
-from obswebsocket import obsws, requests
+import obsws_python as obs
 import time
 import logger
 
@@ -7,7 +7,7 @@ class ObsController:
         """
 
         :param IP: OBSWS Host (should be localhost)
-        :param PORT: OBSWS Port (default = 4444)
+        :param PORT: OBSWS Port (default = 4455)
         :param PASS: Password. Strongly recommanded
         :param cooldown: mimimum time beetween two scene change
         :param forbidden: list of the scenes that doesn't allows for switching
@@ -31,8 +31,8 @@ class ObsController:
         :return:
         """
         try:
-            self.socket = obsws(self.IP, self.PORT, None if self.PASS == "" else self.PASS)
-            self.socket.connect()
+            self.socket = obs.ReqClient(self.IP, self.PORT, None if self.PASS == "" else self.PASS)
+            self.socket.get_version()
         except:
             self.socket = None
             raise ConnectionError
@@ -53,7 +53,7 @@ class ObsController:
         Get the current Scene.
         :return: Str. Scene name
         """
-        return self.socket.call(requests.GetCurrentScene()).datain['name']
+        return self.socket.get_current_program_scene()
 
 
     def go_to_scene(self, scene):
@@ -61,7 +61,7 @@ class ObsController:
         Switch to a scene. Allows for non-existing scenes
         :param scene: Scene name
         """
-        self.socket.call(requests.SetCurrentScene(scene))
+        self.socket.set_current_program_scene(scene)
         self.last_scene = scene
         self.last_switch = time.time()
 
