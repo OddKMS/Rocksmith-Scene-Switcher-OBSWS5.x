@@ -4,39 +4,37 @@ Python program that uses Rocksniffer and OBS Web Socket to automatically switch 
 
 # Features!
 
-  - Supports pausing the game and navigating through sections
-  - Support blacklisting scene from switching (to lock Switcher's depending on the current scene)
-  - Supports adding a customizable cooldown between changes
-  - Support hot-changes on the config (optimized on latest version!).
+- Supports pausing the game and navigating through sections
+- Support blacklisting scene from switching (to lock Switcher's depending on the current scene)
+- Supports adding a customizable cooldown between changes
+- Support hot-changes on the config (optimized on latest version!).
 
-# How to use ? 
+# How to use ?
 
-Before using this software, you need to be sure about 2 things : 
+Before using this software, you need to be sure about 2 things :
+
 - You have Rocksniffer running with the API enabled (last tested version : 0.3.4)
-- OBS Studio is running with OBS-Websocket plugin (last tested version : 4.9.0)
-
-
+- OBS Studio is running with OBS-Websocket plugin (last tested version : 5.1.0)
 
 Download the latest executable version on [the release section !](https://github.com/Warths/Rocksmith-Scene-Switcher/releases)
 
 Upon first opening of the program, a config.ini file will be created. You can change it, especially the [Behaviour] section
 
-
 ```ini
 [OBSWebSocket]
-# You can customize OBS WebSocket address if needed 
+# You can customize OBS WebSocket address if needed
 host = localhost
-port = 4444
-pass = 
+port = 4455
+pass =
 
 [RockSniffer]
-# You can customize Rocksmith address if needed 
+# You can customize Rocksmith address if needed
 host = localhost
 port = 9938
 
 [Behaviour]
-# cooldown refers to the minimum time between two switches. 
-# the 3 following values are the scene names tied to its rocksmith state 
+# cooldown refers to the minimum time between two switches.
+# the 3 following values are the scene names tied to its rocksmith state
 # forbidden_switch_on_scenes is the list of the scenes that doesn't allow for automatic changes once inside
 cooldown = 3
 paused = PauseSceneName

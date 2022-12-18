@@ -31,7 +31,7 @@ class ObsController:
         :return:
         """
         try:
-            self.socket = obs.ReqClient(self.IP, self.PORT, None if self.PASS == "" else self.PASS)
+            self.socket = obs.ReqClient(host=self.IP, port=self.PORT, password=None if self.PASS == "" else self.PASS)
             self.socket.get_version()
         except:
             self.socket = None
