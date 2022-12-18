@@ -1,7 +1,7 @@
 serialized = {
     "OBSWebSocket": {
         "host": "localhost",
-        "port": 4444,
+        "port": 4455,
         "pass": "",
     },
     "RockSniffer": {
